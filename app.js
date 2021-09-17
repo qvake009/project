@@ -77,7 +77,7 @@ function drop(event) {
   if (event.target.lastChild == null) {
       event.target.append(item); 
   }
-  if (ceed.length == 2 && event.target.lastChild !== null) {
+  if (ceed.length == 2) {
     text.innerHTML = "<p>Осталось 👇 2 пакета семян</p>";
   }
   if (ceed.length == 1 && event.target.lastChild !== null) {
