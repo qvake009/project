@@ -26,6 +26,7 @@ class Appre {
 }
 
 const app = new Appre();
+let score = 0;
 
 app.render();
 
@@ -58,6 +59,38 @@ function dragstart(event) {
 
 function dragend(event) {
   event.target.classList.remove("hold", "hide");
+  ceed = document.querySelectorAll(".ceed-space>.ceed");
+  if (ceed.length == 2 && score == 1) {
+    text.innerHTML = "<p>Осталось 👇 2 пакета 🌿🌿</p>";
+  }
+  if (ceed.length == 2 && score == 0) {
+    text.innerHTML = "<p>Дядя ты проебал пакет за 100💲</p>";
+  }
+  if (ceed.length == 1 && score == 1) {
+    text.innerHTML = "<p>Окуратно не роняй 🌿🌿</p>";
+  }
+  if (ceed.length == 1 && score == 0) {
+    text.innerHTML = "<p>Еще одна ошибка и тебе ☠️</p>";
+  }
+  if (ceed.length == 0 && score == 1) {
+    text.classList.add("big")
+    text.innerHTML = "<p>Нужно было сразу доставать 🔫</p>";
+  }
+  if (ceed.length == 0 && score == 0) {
+    text.classList.add("big")
+    text.innerHTML = "<p>Туц-туц 🔫☀️ чики брики</p>";
+  }
+  if (ceed.length == 1 && score == 2) {
+    text.innerHTML = "<p>Еще немного и пойдем 😮‍💨</p>";
+  }
+  if (ceed.length == 0 && score == 2) {
+    text.classList.add("big")
+    text.innerHTML = "<p>Пошли ебним 🌿⚗️</p>";
+  }
+  if (ceed.length == 0 && score == 3) {
+       text.classList.add("big")
+    text.innerHTML = "<p>Красава скоро у нас будет много нала 💲💲💲💲💲💲</p>";
+  }
 }
 
 function dragover(event) {
@@ -73,18 +106,9 @@ function dragleave(event) {
 
 function drop(event) {
   event.target.classList.remove("hovered");
-  ceed = document.querySelectorAll(".ceed-space>.ceed");
   if (event.target.lastChild == null) {
-      event.target.append(item); 
-  }
-  if (ceed.length == 2) {
-    text.innerHTML = "<p>Осталось 👇 2 пакета семян</p>";
-  }
-  if (ceed.length == 1 && event.target.lastChild !== null) {
-    text.innerHTML = "<p>Еще немного и пойдем 😮‍💨</p>";
-  }
-  if (ceed.length == 0 && event.target.lastChild !== null) {
-    text.innerHTML = "<p>Красава скоро у нас будет много нала 💲💲💲💲💲💲</p>";
+      event.target.append(item);
+      score += 1 ; 
   }
 
 }

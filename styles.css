@@ -110,3 +110,7 @@ p {
 .hide {
   display: none;
 }
+
+.big {
+  font-size: 50px;
+}
