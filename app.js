@@ -84,7 +84,7 @@ function drop(event) {
     text.innerHTML = "<p>Еще немного и пойдем 😮‍💨</p>";
   }
   if (ceed.length == 0 && event.target.lastChild !== null) {
-    text.innerHTML = "<p>Красава скоро у нас много нала 💲💲💲💲💲💲</p>";
+    text.innerHTML = "<p>Красава скоро у нас будет много нала 💲💲💲💲💲💲</p>";
   }
 
 }
