@@ -53,7 +53,6 @@ function dragstart(event) {
   setTimeout(() => {
     event.target.classList.add("hide");
     event.target.remove();
-    ceed = document.querySelectorAll(".ceed-space>.ceed");
   }, 0);
 }
 
@@ -74,8 +73,18 @@ function dragleave(event) {
 
 function drop(event) {
   event.target.classList.remove("hovered");
-  event.target.append(item);
-  if (ceed.length == 0) {
+  ceed = document.querySelectorAll(".ceed-space>.ceed");
+  if (event.target.lastChild == null) {
+      event.target.append(item); 
+  }
+  if (ceed.length == 2 && event.target.lastChild !== null) {
+    text.innerHTML = "<p>Осталось 👇 2 пакета семян</p>";
+  }
+  if (ceed.length == 1 && event.target.lastChild !== null) {
+    text.innerHTML = "<p>Еще немного и пойдем 😮‍💨</p>";
+  }
+  if (ceed.length == 0 && event.target.lastChild !== null) {
     text.innerHTML = "<p>Красава скоро у нас много нала 💲💲💲💲💲💲</p>";
   }
+
 }
